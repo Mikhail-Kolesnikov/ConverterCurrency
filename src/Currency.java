@@ -1,6 +1,6 @@
 import java.util.Objects;
 
-public class Currency implements CalculateCurrency {
+public class Currency {
 
 
     private double dollar;
