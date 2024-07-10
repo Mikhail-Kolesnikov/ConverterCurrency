@@ -1,16 +1,13 @@
 public class CalculatedCurrency implements CalculateOfCurrency {
 
     public Currency converter;
-    //отношение рубля к валюте
-    //private static final double RUB_TO_EUR = 95.5;
+    //отношение валют
     private static final double USD_TO_EUR = 1.03;
     private static final double JPY_TO_EUR = 7.01;
 
     private static final double EUR_TO_USD = 0.98;
     private static final double JPY_TO_USD = 7.16;
-    //private static final double RUB_TO_USD = 87.6;
 
-    //private static final double RUB_TO_JPY = 0.082;
     private static final double USD_TO_JPY = 0.11;
     private static final double EUR_TO_JPY = 0.12;
 
@@ -20,7 +17,7 @@ public class CalculatedCurrency implements CalculateOfCurrency {
         double result = 0.0;
 
 
-        switch (count) {//выбор валюты и конвертация в рубли
+        switch (count) {//выбор валюты и конвертация
             case 1://Dollar
                 result = amount * JPY_TO_USD;
                 System.out.println(amount + " Dollars = " + result + " JPY ");
@@ -35,7 +32,7 @@ public class CalculatedCurrency implements CalculateOfCurrency {
                 break;
             case 3://JPY
                 result = amount * EUR_TO_JPY;
-                System.out.println(amount + " JPY = " + result + " EURO");
+                System.out.println(amount + " JPY = " + result + " EURO ");
                 result = amount * USD_TO_JPY;
                 System.out.println(amount + " JPY = " + result + " USD ");
 
