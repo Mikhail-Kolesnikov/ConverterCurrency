@@ -2,9 +2,17 @@ public class CalculatedCurrency implements CalculateOfCurrency {
 
     public Currency converter;
     //отношение рубля к валюте
-    private static final double RUB_TO_EUR = 100.5;
-    private static final double RUB_TO_USD = 93.6;
-    private static final double RUB_TO_JPY = 14.6;
+    //private static final double RUB_TO_EUR = 95.5;
+    private static final double USD_TO_EUR = 1.03;
+    private static final double JPY_TO_EUR = 7.01;
+
+    private static final double EUR_TO_USD = 0.98;
+    private static final double JPY_TO_USD = 7.16;
+    //private static final double RUB_TO_USD = 87.6;
+
+    //private static final double RUB_TO_JPY = 0.082;
+    private static final double USD_TO_JPY = 0.11;
+    private static final double EUR_TO_JPY = 0.12;
 
 
     @Override
@@ -13,18 +21,23 @@ public class CalculatedCurrency implements CalculateOfCurrency {
 
 
         switch (count) {//выбор валюты и конвертация в рубли
-            case 1:
-                result = amount * RUB_TO_EUR;
-                System.out.println(result + "Rub");
+            case 1://Dollar
+                result = amount * JPY_TO_USD;
+                System.out.println(amount + " Dollars = " + result + " JPY ");
+                result = amount * EUR_TO_USD;
+                System.out.println(amount + " Dollars = " + result + " EUR ");
                 break;
-            case 2:
-                result = amount * RUB_TO_USD;
-                System.out.println(result + " Rub");
+            case 2://EURO
+                result = amount * JPY_TO_EUR;
+                System.out.println(amount + " EURO = " + result + " JPY");
+                result = amount * USD_TO_EUR;
+                System.out.println(amount + " EURO = " + result + " USD ");
                 break;
-            case 3:
-                result = amount * RUB_TO_JPY;
-                System.out.println(result + " Rub");
-                break;
+            case 3://JPY
+                result = amount * EUR_TO_JPY;
+                System.out.println(amount + " JPY = " + result + " EURO");
+                result = amount * USD_TO_JPY;
+                System.out.println(amount + " JPY = " + result + " USD ");
 
             default:
                 System.out.println("Ошибка");
