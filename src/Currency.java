@@ -2,9 +2,9 @@ import java.util.Objects;
 
 public class Currency {
 
-    private static final double RUB_TO_EUR = 100.5;
-    private static final double RUB_TO_USD = 93.6;
-    private static final double RUB_TO_JPY = 14.6;
+//    private static final double RUB_TO_EUR = 100.5;
+//    private static final double RUB_TO_USD = 93.6;
+//    private static final double RUB_TO_JPY = 14.6;
 
     private double JPY;
     private double Dollar;
