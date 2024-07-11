@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class CurrencyExchangeHistory {
     private ArrayList<Exchange> history;
@@ -12,7 +13,7 @@ public class CurrencyExchangeHistory {
         this.history.add(new Exchange(fromCurrency, toCurrency, amount, date));
     }
 
-    public ArrayList<Exchange> getHistory() {
+    public List<Exchange> getHistory() {
         return this.history;
     }
 

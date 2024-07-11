@@ -1,3 +1,4 @@
+import java.util.Date;
 import java.util.Scanner;
 
 public class Main {
@@ -15,13 +16,66 @@ public class Main {
         double amount = scanner.nextDouble();
         scanner.nextLine();
 
-        String res = calculatedCurrency.typeCurrency(amount, currencyIn, currencyOut);
+        Exchange exchange = new Exchange(currencyIn, currencyOut, amount, new Date());
+        String res = calculatedCurrency.typeCurrency(exchange);
 
         System.out.println(res);
 
 
     }
 
-
 }
 
+public class CalculatedCurrency {
+
+    public String typeCurrency(Exchange exchange) {
+
+        return null;
+    }
+}
+
+class Exchange {
+    private String fromCurrency;
+    private String toCurrency;
+    private double amount;
+    private Date date;
+
+    public Exchange(String fromCurrency, String toCurrency, double amount, Date date) {
+        this.fromCurrency = fromCurrency;
+        this.toCurrency = toCurrency;
+        this.amount = amount;
+        this.date = date;
+    }
+
+    public String getFromCurrency() {
+        return fromCurrency;
+    }
+
+    public void setFromCurrency(String fromCurrency) {
+        this.fromCurrency = fromCurrency;
+    }
+
+    public String getToCurrency() {
+        return toCurrency;
+    }
+
+    public void setToCurrency(String toCurrency) {
+        this.toCurrency = toCurrency;
+    }
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(double amount) {
+        this.amount = amount;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+}
