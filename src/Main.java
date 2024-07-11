@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -6,6 +8,7 @@ public class Main {
     public static void main(String[] args) {
 
         CalculatedCurrency calculatedCurrency = new CalculatedCurrency();
+        CurrencyExchangeHistory currencyExchangeHistory = new CurrencyExchangeHistory();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Добро пожаловать");
         System.out.println("Введите валюту, в которую хотите конвертировать: USD, EURO, JPY ");
@@ -16,66 +19,73 @@ public class Main {
         double amount = scanner.nextDouble();
         scanner.nextLine();
 
-        Exchange exchange = new Exchange(currencyIn, currencyOut, amount, new Date());
-        String res = calculatedCurrency.typeCurrency(exchange);
+        String res = calculatedCurrency.typeCurrency(amount, currencyIn, currencyOut);
+        currencyExchangeHistory.addExchange(currencyIn, currencyOut, amount, new Date());
 
         System.out.println(res);
-
-
     }
 
+    public static class CalculatedCurrency {
+        public String typeCurrency(double amount, String currencyIn, String currencyOut) {
+            double rate = getRate(currencyIn, currencyOut);
+            double convertedAmount = amount * rate;
+            return "The converted amount is: " + convertedAmount;
+        }
+
+        private double getRate(String currencyIn, String currencyOut) {
+            if (currencyIn.equals("USD") && currencyOut.equals("EURO")) {
+                return 0.85;
+            } else if (currencyIn.equals("EURO") && currencyOut.equals("USD")) {
+                return 1.18;
+            }
+            return 0;
+        }
+    }
+
+    public static class CurrencyExchangeHistory {
+        private ArrayList<Exchange> history;
+
+        public CurrencyExchangeHistory() {
+            this.history = new ArrayList<>();
+        }
+
+        public void addExchange(String fromCurrency, String toCurrency, double amount, Date date) {
+            this.history.add(new Exchange(fromCurrency, toCurrency, amount, date));
+        }
+
+        public List<Exchange> getHistory() {
+            return this.history;
+        }
+
+        class Exchange {
+            private String fromCurrency;
+            private String toCurrency;
+            private double amount;
+            private Date date;
+
+            public Exchange(String fromCurrency, String toCurrency, double amount, Date date) {
+                this.fromCurrency = fromCurrency;
+                this.toCurrency = toCurrency;
+                this.amount = amount;
+                this.date = date;
+            }
+
+            public String getFromCurrency() {
+                return this.fromCurrency;
+            }
+
+            public String getToCurrency() {
+                return this.toCurrency;
+            }
+
+            public double getAmount() {
+                return this.amount;
+            }
+
+            public Date getDate() {
+                return this.date;
+            }
+        }
+    }
 }
 
-public class CalculatedCurrency {
-
-    public String typeCurrency(Exchange exchange) {
-
-        return null;
-    }
-}
-
-class Exchange {
-    private String fromCurrency;
-    private String toCurrency;
-    private double amount;
-    private Date date;
-
-    public Exchange(String fromCurrency, String toCurrency, double amount, Date date) {
-        this.fromCurrency = fromCurrency;
-        this.toCurrency = toCurrency;
-        this.amount = amount;
-        this.date = date;
-    }
-
-    public String getFromCurrency() {
-        return fromCurrency;
-    }
-
-    public void setFromCurrency(String fromCurrency) {
-        this.fromCurrency = fromCurrency;
-    }
-
-    public String getToCurrency() {
-        return toCurrency;
-    }
-
-    public void setToCurrency(String toCurrency) {
-        this.toCurrency = toCurrency;
-    }
-
-    public double getAmount() {
-        return amount;
-    }
-
-    public void setAmount(double amount) {
-        this.amount = amount;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-}
