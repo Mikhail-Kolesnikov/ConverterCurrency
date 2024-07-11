@@ -1,0 +1,2 @@
+public class CurrencyExchangeHistory {
+}
