@@ -7,13 +7,15 @@ public class Main {
         CalculatedCurrency calculatedCurrency = new CalculatedCurrency();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Добро пожаловать");
-        System.out.println("Выберите валюту: ");
-        System.out.println("1 - USD (In JPY and EURO), 2 - EURO (In USD and JPY), 3 - JPY (In EURO and USD)");
-        int count = scanner.nextInt();
+        System.out.println("Введите валюту, в которую хотите конвертировать: USD, EURO, JPY ");
+        String currencyIn = scanner.nextLine().toUpperCase();
+        System.out.println("Введите валюту, которую хотите конвертировать: USD, EURO, JPY ");
+        String currencyOut = scanner.nextLine().toUpperCase();
         System.out.println("Введите жалаемую сумму ");
         double amount = scanner.nextDouble();
+        scanner.nextLine();
 
-        double res = calculatedCurrency.typeCurrency(amount, "Rub", count);
+        String res = calculatedCurrency.typeCurrency(amount, currencyIn, currencyOut);
 
         System.out.println(res);
 

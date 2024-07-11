@@ -13,35 +13,51 @@ public class CalculatedCurrency implements CalculateOfCurrency {
 
 
     @Override
-    public double typeCurrency(double amount, String currencyIn, int count) {
+    public String typeCurrency(double amount, String currencyIn, String currencyOut) {
         double result = 0.0;
 
 
-        switch (count) {//выбор валюты и конвертация
-            case 1://Dollar
+        switch (currencyIn + currencyOut) {//выбор валюты и конвертация
+            case "JPYUSD"://Dollar
                 result = amount * JPY_TO_USD;
                 System.out.println(amount + " Dollars = " + result + " JPY ");
+                break;
+            case "EUROUSD":
                 result = amount * EUR_TO_USD;
                 System.out.println(amount + " Dollars = " + result + " EUR ");
                 break;
-            case 2://EURO
+            case "JPYEURO"://EURO
                 result = amount * JPY_TO_EUR;
                 System.out.println(amount + " EURO = " + result + " JPY");
+                break;
+            case "USDEURO":
                 result = amount * USD_TO_EUR;
                 System.out.println(amount + " EURO = " + result + " USD ");
                 break;
-            case 3://JPY
+            case "EUROJPY"://JPY
                 result = amount * EUR_TO_JPY;
                 System.out.println(amount + " JPY = " + result + " EURO ");
+                break;
+            case "USDJPY":
                 result = amount * USD_TO_JPY;
                 System.out.println(amount + " JPY = " + result + " USD ");
+                break;
 
             default:
                 System.out.println("Ошибка");
-                break;
+
+
+
 
         }
+        return ("Конвертация " + currencyIn + currencyOut);
 
-        return count;
     }
 }
+
+
+
+
+
+
+
