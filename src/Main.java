@@ -19,6 +19,7 @@ public class Main {
             if (currencyIn.startsWith("HISTORY")) {
                 calculatedCurrency.printHistoryExchange();
 
+
             }
 
             System.out.println("Введите валюту, которую хотите конвертировать: USD, EURO, JPY ");

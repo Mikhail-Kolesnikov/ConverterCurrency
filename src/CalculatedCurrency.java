@@ -22,7 +22,7 @@ public class CalculatedCurrency implements CalculateOfCurrency {
     public String typeCurrency(double amount, String currencyIn, String currencyOut) {
         double result = 0.0;
 
-        String exchange = "Amount " + amount + "  " + currencyOut + " to " + currencyIn;
+        String exchange = " Сумма  " + amount + "  " + currencyOut + " к " + currencyIn;
 
 
         switch (currencyIn + currencyOut) {//выбор валюты и конвертация
