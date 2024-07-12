@@ -16,8 +16,9 @@ public class Main {
                     "для просмотра операций по обмену валют ");
             String currencyIn = scanner.nextLine().toUpperCase();
 
-            if (currencyIn.startsWith("History")) {
+            if (currencyIn.startsWith("HISTORY")) {
                 calculatedCurrency.printHistoryExchange();
+
             }
 
             System.out.println("Введите валюту, которую хотите конвертировать: USD, EURO, JPY ");
