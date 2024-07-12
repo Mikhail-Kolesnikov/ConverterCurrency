@@ -1,3 +1,7 @@
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
 public class CalculatedCurrency implements CalculateOfCurrency {
 
     public Currency converter;
@@ -11,10 +15,14 @@ public class CalculatedCurrency implements CalculateOfCurrency {
     private static final double USD_TO_JPY = 0.11;
     private static final double EUR_TO_JPY = 0.12;
 
+    private List<String> historyExchange= new ArrayList<>();
+
 
     @Override
     public String typeCurrency(double amount, String currencyIn, String currencyOut) {
         double result = 0.0;
+
+        String exchange = "Amount"  + amount + " " + currencyIn + " " + currencyOut;
 
 
         switch (currencyIn + currencyOut) {//выбор валюты и конвертация
@@ -45,14 +53,31 @@ public class CalculatedCurrency implements CalculateOfCurrency {
 
             default:
                 System.out.println("Ошибка");
+                return ("Конвертация " + currencyIn + currencyOut);
+
+
+
 
 
 
 
         }
-        return ("Конвертация " + currencyIn + currencyOut);
+//        exchange = " " + result;
+        exchange = " " + LocalDateTime.now();
+        historyExchange.add(exchange);
+        return exchange;
 
     }
+
+    public void printHistoryExchange(){
+        System.out.println("История запроса обмена валют");
+        for (String string : historyExchange) {
+            System.out.println(string);
+
+        }
+    }
+
+
 }
 
 
