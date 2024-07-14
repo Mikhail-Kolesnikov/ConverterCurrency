@@ -14,13 +14,16 @@ public class Main {
             System.out.println("Введите валюту, в которую хотите конвертировать: USD, EURO, JPY ");
             String currencyIn = scanner.nextLine().toUpperCase();
 
-            if ("HISTORY".equals(currencyIn)) { // Проверьте, верен ли ввод пользователя "HISTORY"
-                // Получить историю обмена и отобразить ее
+            if ("HISTORY".equals(currencyIn)) { // Check if user input is "HISTORY"
+                // Retrieve the exchange history and display it
                 System.out.println("\nCurrency Exchange History:");
                 for (CurrencyExchangeHistory.Exchange exchange : exchangeHistory.getHistory()) {
-                    System.out.println(STR."From: \{exchange.getFromCurrency()} To: \{exchange.getToCurrency()} Amount: \{exchange.getAmount()} Date: \{exchange.getDate()}");
+                    System.out.println("From: " + exchange.getFromCurrency() +
+                            " To: " + exchange.getToCurrency() +
+                            " Amount: " + exchange.getAmount() +
+                            " Date: " + exchange.getDate());
                 }
-                continue; // Пропустите оставшуюся часть цикла и начните заново
+                continue; // Skip the rest of the loop and start over
             }
 
             System.out.println("Введите валюту, которую хотите конвертировать: USD, EURO, JPY ");
