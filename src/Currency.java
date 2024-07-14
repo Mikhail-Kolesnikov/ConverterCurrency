@@ -104,7 +104,7 @@ public class Currency {
 //        }
 //        return BASE_DEBIT_RATE;
 
-//ublic double calculate(OperationWithDebiting operationWithDebiting, int years){
+//public double calculate(OperationWithDebiting operationWithDebiting, int years){
 //        double debit = operationWithDebiting.calculateDebit();
 //        double amount = operationWithDebiting.getAmount();
 //        for (int i = 0; i < years; i++) {
