@@ -45,19 +45,8 @@ public class CalculatedCurrency implements CalculateOfCurrency {
 
             default:
                 System.out.println("Ошибка");
-
-
-
-
         }
-        return ("Конвертация " + currencyIn + currencyOut);
 
+        return ("Конвертация " + currencyIn + currencyOut);
     }
 }
-
-
-
-
-
-
-
